@@ -82,6 +82,12 @@ async function drawChart() {
     .call(yAxisGenerator)
       .attr("id", "y-axis")
 
+  const yAxisLabel = yAxis.append("text")
+    .attr("x", -dimensions.boundedWidth / 2)
+    .attr("y", -dimensions.margin.left + 12)
+    .text("Memory (1000 MB = 1 GB)")
+    .attr("class", "y-axis-label")
+
   // setup interactions
   const tooltip = d3.select("#tooltip")
     .attr("class", "tooltip")
@@ -92,6 +98,9 @@ async function drawChart() {
     if(d.Memory) {
       tooltip.select("#memory")
         .text(`Minimum ${formatMemory(d.Memory)}`)
+    } else {
+      tooltip.select("#memory")
+        .text("")
     }
     tooltip.style("opacity", 0.9)
   }
