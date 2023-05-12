@@ -89,8 +89,10 @@ async function drawChart() {
   function onMouseEnter(d) {
     tooltip.select("#cod_title")
       .text(`${d.Title}  (${d.Year})`)
-    tooltip.select("#memory")
-      .text(`Minimum ${formatMemory(d.Memory)}`)
+    if(d.Memory) {
+      tooltip.select("#memory")
+        .text(`Minimum ${formatMemory(d.Memory)}`)
+    }
     tooltip.style("opacity", 0.9)
   }
 
@@ -106,9 +108,9 @@ async function drawChart() {
   // utils
   function formatMemory(d) {
     if(d >= 1000) {
-      return d.toString().split("")[0] + " GB"
+      return `${d.toString().split("")[0]} GB`
     } else {
-      return d + " MB"
+      return `${d} MB`
     }
   }
 }
