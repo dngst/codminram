@@ -54,7 +54,6 @@ async function drawChart() {
   const dots = bounds.selectAll("circle")
     .data(dataset)
     .enter().append("circle")
-    .attr("r", 6)
     .attr("cx", d => xScale(xAccessor(d)))
     .attr("cy", d => yScale(yAccessor(d)))
     .attr("class", "dot")
@@ -63,6 +62,8 @@ async function drawChart() {
       })
     .on("mousemove", onMouseMove)
     .on("mouseleave", onMouseLeave)
+    .transition().duration(800).delay((d, i) => i * 20).ease(d3.easeElastic)
+      .attr("r", 6)
 
   // draw peripherals
   const xAxisGenerator = d3.axisBottom()
