@@ -17,7 +17,7 @@ async function drawChart() {
       top: 10,
       right: 15,
       bottom: 50,
-      left: 50
+      left: 55
     }
   }
 
