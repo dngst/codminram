@@ -101,7 +101,7 @@ async function drawChart() {
         .text(`Minimum ${formatMemory(d.Memory)}`)
     } else {
       tooltip.select("#memory")
-        .text("")
+        .text("No PC release")
     }
     tooltip.style("opacity", 0.9)
   }
