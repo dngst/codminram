@@ -6,7 +6,7 @@ wiki_page_request = r.get("https://en.wikipedia.org/wiki/Call_of_Duty")
 wiki_page_text = wiki_page_request.text
 
 soup = BeautifulSoup(wiki_page_text, 'html.parser')
-required_table = soup.select_one("table:nth-of-type(3)")
+required_table = soup.select_one("table:nth-of-type(2)")
 
 headers = ["Title", "Year"]
 
